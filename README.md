@@ -1,7 +1,7 @@
 # Installation
 
 ## Developer Install for Windows
-[Install Rust](https://www.rust-lang.org/tools/install) if you don't have it already. Then do the following:
+[Install Rust](https://www.rust-lang.org/tools/install) and [Git bash](https://git-scm.com/downloads/win) if you don't have them already. Then do the following:
 
 ```ps1
 git clone [THIS REPO]
