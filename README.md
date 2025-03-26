@@ -13,19 +13,25 @@ I specifically want this to be a project that can be easily developed on from an
 
 ```ps1
 git clone https://gitlab.com/willemdoesgit1/rust-wasm.git
-cargo run -q
+
+!!! MISSING DEPENDENCIES !!!
+
+cargo build --target wasm32-unknown-unknown --release
 ```
 
 ## Developer Install for MacOS and Linux
 ### Using Nix
 Assuming you are on nixos, have nix packages, or are willing to install nix packages; then this is easy. <br>
-Do the following:
+Without needing to install any dependencies, including rust, do the following:
 
 ```bash
 git clone https://gitlab.com/willemdoesgit1/rust-wasm.git   # initalize repo
 sh <(curl -L https://nixos.org/nix/install) --daemon        # install nix
 nix develop -c $[SHELL]                                     # enter developer shell
-cargo run -q                                                # compile and run
+cargo build --target wasm32-unknown-unknown --release       # compile and run
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . --target web # load to web directory
+cd web
+python3 -m http.server
 ```
 
 > [!NOTE]
@@ -44,7 +50,10 @@ Then clone the repo and compile:
 
 ```bash
 git clone https://gitlab.com/willemdoesgit1/rust-wasm.git
-cargo run -q
+
+!!! MISSING DEPENDENCIES !!!
+
+cargo build --target wasm32-unknown-unknown --release
 ```
 
 > [!NOTE]
