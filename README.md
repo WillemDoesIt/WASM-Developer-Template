@@ -9,15 +9,33 @@ I specifically want this to be a project that can be easily developed on from an
 # Installation
 
 ## Developer Install for Windows
-[Install Rust](https://www.rust-lang.org/tools/install) and [Git bash](https://git-scm.com/downloads/win) if you don't have them already. Then do the following:
+[Install Rust](https://www.rust-lang.org/tools/install) and [Git bash](https://git-scm.com/downloads/win) if you don't have them already. 
+You may also want to [install Python](https://www.python.org/downloads/) so you can localhost the `web/` directory, although many non-python solutions work here.
+Then do the following:
 
-```ps1
+```bash
+# DOWNLOAD REPO
 git clone https://gitlab.com/willemdoesgit1/rust-wasm.git
 
-!!! MISSING DEPENDENCIES !!!
+# IMPERATIVE ONE-TIME COMMANDS
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh       # install wasm-pack
+cargo install cargo-generate                                                # install cargo-generate (this may take a while)
+cargo install wasm-bindgen-cli                                              # wasm-bindgen-cli
+rustup target add wasm32-unknown-unknown                                    # setup for compilation wasm32-unknown-unknown
 
-cargo build --target wasm32-unknown-unknown --release
+# COMPILE
+cargo build --target wasm32-unknown-unknown --release                           # compile
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web # load to web directory
+
+# LOCAL HOST (OPTIONAL)
+cd web
+python -m http.server
 ```
+
+> [!NOTE]
+> The commands directly above are bash commands that need to executed in a bash terminal, downloading git-bash gives you one.
+> If gitbash cannot find python after install (verify by trying `python --version`), run `export PATH=/c/Users/[USER]/AppData/Local/Programs/Python/Python313:$PATH` in bash to set the directory as an environment variable. Be sure to repace [USER] with your username, the location of python may vary per user, run `which python` or `which python3` to find the directory to use.
+
 
 ## Developer Install for MacOS and Linux
 ### Using Nix
@@ -25,36 +43,51 @@ Assuming you are on nixos, have nix packages, or are willing to install nix pack
 Without needing to install any dependencies, including rust, do the following:
 
 ```bash
-git clone https://gitlab.com/willemdoesgit1/rust-wasm.git   # initalize repo
-sh <(curl -L https://nixos.org/nix/install) --daemon        # install nix
-nix develop -c $[SHELL]                                     # enter developer shell
-cargo build --target wasm32-unknown-unknown --release       # compile and run
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . --target web # load to web directory
+# DOWNLOAD REPO
+git clone https://gitlab.com/willemdoesgit1/rust-wasm.git
+
+# IMPERATIVE ONE-TIME COMMANDS
+sh <(curl -L https://nixos.org/nix/install) --daemon            # install nix
+
+# ENTER DEVELOPER ENVIRONMENT
+nix develop -c $[SHELL]
+
+# COMPILE
+cargo build --target wasm32-unknown-unknown --release                           # compile
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web # load to web directory
+
+# LOCAL HOST
 cd web
 python3 -m http.server
 ```
 
 > [!NOTE]
+> This assumes git is installed, if not [here is a guide](https://git-scm.com/downloads/linux), or if nix is already installed, just do `nix-shell -p git`
+> Do not install nix if you already are on NixOS.
 > Replace [SHELL] with your prefered shell (fish, bash, zsh) or instead write `nix develop` without flags, and it will choose your default shell automatically.
 > Use `exit` to escape the shell.
+> Given the localhost with python is optional, if you don't use it, you can remove python314 from the flake to make the `nix develop` command run faster.
 
 ### Without Nix 
 If you don't want to use nix, do the following: <br>
-Imperatively install rust if you don't have it already.
 
 ```bash
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-```
-
-Then clone the repo and compile:
-
-```bash
+# DOWNLOAD REPO
 git clone https://gitlab.com/willemdoesgit1/rust-wasm.git
 
-!!! MISSING DEPENDENCIES !!!
+# IMPERATIVE ONE-TIME COMMANDS
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+!!! MISSING STUFF !!! READ NOTE !!!
 
-cargo build --target wasm32-unknown-unknown --release
+# COMPILE
+cargo build --target wasm32-unknown-unknown --release                                       # compile
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . --target web  # load to web directory
+
+# LOCAL HOST
+cd web
+python3 -m http.server
 ```
 
 > [!NOTE]
+> This part of the readme isn't finished, dependencies are missing, I assuming installing is the same process on windows (as it's bash in both instances), but this is not yet confirmed.
 > This assumes git is installed, if not [here is a guide](https://git-scm.com/downloads/linux)

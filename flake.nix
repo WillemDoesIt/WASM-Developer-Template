@@ -17,7 +17,7 @@
             cargo rustc
             lld
 
-            wasm-bindgen-cli
+            wasm-bindgen-cli   # cargo install wasm-bindgen-cli
             python314
           ]; 
         };
