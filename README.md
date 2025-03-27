@@ -25,7 +25,7 @@ rustup target add wasm32-unknown-unknown                                    # se
 
 # COMPILE
 cargo build --target wasm32-unknown-unknown --release                           # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web # load to web directory
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . && mv rust_* web/ # load to web directory
 
 # LOCAL HOST (OPTIONAL)
 cd web
@@ -54,7 +54,7 @@ nix develop -c $[SHELL]
 
 # COMPILE
 cargo build --target wasm32-unknown-unknown --release                           # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web # load to web directory
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . && mv rust_* web/ # load to web directory
 
 # LOCAL HOST
 cd web
@@ -81,7 +81,7 @@ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
 # COMPILE
 cargo build --target wasm32-unknown-unknown --release                                       # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . --target web  # load to web directory
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . && mv rust_* web/ # load to web directory
 
 # LOCAL HOST
 cd web
