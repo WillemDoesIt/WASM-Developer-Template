@@ -1,0 +1,10 @@
+body {
+    min-width: 500px;
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+}
+
+.wasm {
+    padding: 10px;
+}

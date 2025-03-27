@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rust + WASM</title>
+    <link href="/format.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
     <h1>Hello, WASM!</h1>
     <script type="module">
-        import init, { greet } from './rust_wasm.js';
+        import init, { greet } from './wasm/rust_wasm.js';
 
         async function runWasm() {
             await init();  // Initialize WASM module

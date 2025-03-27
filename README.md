@@ -22,7 +22,8 @@ cargo install wasm-bindgen-cli                  # wasm-bindgen-cli
 rustup target add wasm32-unknown-unknown        # setup for compilation
 
 # COMPILE
-cargo build --target wasm32-unknown-unknown --release && wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web
+cargo build --target wasm32-unknown-unknown --release
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web/wasm --target web
 
 # LOCAL HOST (OPTIONAL)
 cd web
@@ -50,7 +51,8 @@ sh <(curl -L https://nixos.org/nix/install) --daemon            # install nix
 nix develop -c $[SHELL]
 
 # COMPILE
-cargo build --target wasm32-unknown-unknown --release && wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web
+cargo build --target wasm32-unknown-unknown --release 
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web/wasm --target web
 
 # LOCAL HOST
 cd web

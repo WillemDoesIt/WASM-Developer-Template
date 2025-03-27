@@ -5,12 +5,16 @@ use web_sys::{console, Document, Window};
 pub fn greet() {
     console::log_1(&"Hello, WASM!".into());
 
-    // Get the window and document
-    let window: Window = web_sys::window().unwrap();
-    let document: Document = window.document().unwrap();
+    // Get the document
+    let document: Document = web_sys::window()
+        .unwrap()
+        .window()
+        .document()
+        .unwrap();
 
     // Create a div element
     let div = document.create_element("div").unwrap();
+    div.set_class_name("wasm");
     div.set_inner_html("This is dynamically loaded text from WASM!");
 
     // Append the div to the body of the document
