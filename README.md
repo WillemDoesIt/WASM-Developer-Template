@@ -54,7 +54,7 @@ nix develop -c $[SHELL]
 
 # COMPILE
 cargo build --target wasm32-unknown-unknown --release                           # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . && mv rust_* web/ # load to web directory
+wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web # load to web directory
 
 # LOCAL HOST
 cd web
