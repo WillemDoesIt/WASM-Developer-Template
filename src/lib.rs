@@ -1,22 +1,20 @@
 use wasm_bindgen::prelude::*;
-use web_sys::{console, Document};
+use web_sys::{console, Document, Window, HtmlElement};
 
 #[wasm_bindgen]
 pub fn greet() {
-    console::log_1(&"Hello, WASM!".into());
+    // console::log_1(&"Hello, WASM!".into()); // this is how you print to console
 
-    // Get the document
-    let document: Document = web_sys::window()
-        .unwrap()
-        .window()
+    let document = web_sys::window()
+        .expect("No window")
         .document()
-        .unwrap();
+        .expect("No document");
 
-    // Create a div element
-    let div = document.create_element("div").unwrap();
+    let div = document.get_element_by_id("dynamic-content")
+        .expect("Element not found")
+        .dyn_into::<HtmlElement>()
+        .expect("Failed to cast to HtmlElement");
+
+    div.set_inner_html("WASM has dynamically updated this text!");
     div.set_class_name("wasm");
-    div.set_inner_html("This is dynamically loaded text from WASM!");
-
-    // Append the div to the body of the document
-    document.body().unwrap().append_child(&div).unwrap();
 }
