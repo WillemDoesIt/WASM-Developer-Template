@@ -18,7 +18,7 @@
             lld
 
             wasm-bindgen-cli   # cargo install wasm-bindgen-cli
-            python314
+            python313
           ]; 
         };
         shellHook = ''rustup target add wasm32-unknown-unknown'';
