@@ -8,7 +8,7 @@ I specifically want this to be a project that can be easily developed on from an
 
 # Installation
 
-Bellow this will be instrucitons on installing dependencies and how to do the various things you may want to be able to do per operating system, but for ease, once you have installed all dependencies, you can command `./run.sh` to both compile and webhost (using python) automatically.
+Bellow this will be instrucitons on installing dependencies and how to do the various things you may want to be able to do per operating system, but for ease, once you have installed all dependencies, you can command `./run.sh` to both compile and localhost (using python) automatically. After running, navigate to `localhost:8000` in your prefered browser to view.
 
 ## Developer Install for Windows
 [Install Rust](https://www.rust-lang.org/tools/install) and [Git bash](https://git-scm.com/downloads/win) if you don't have them already. 
@@ -35,6 +35,7 @@ python -m http.server
 > [!NOTE]
 > The commands directly above are bash commands that need to executed in a bash terminal, downloading git-bash gives you one.
 > If gitbash cannot find python after install (verify by trying `python --version`), run `export PATH=/c/Users/[USER]/AppData/Local/Programs/Python/Python313:$PATH` in bash to set the directory as an environment variable. Be sure to repace [USER] with your username, the location of python may vary per user, run `which python` or `which python3` to find the directory to use.
+> python may try to direct you to `http://[::]:8000/`, instead ignore this and go to `localhost:8000` on your prefered browser to view the localhost view.
 
 
 ## Developer Install for MacOS and Linux
