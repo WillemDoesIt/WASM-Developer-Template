@@ -18,14 +18,11 @@ Then do the following:
 git clone https://gitlab.com/willemdoesgit1/rust-wasm.git
 
 # IMPERATIVE ONE-TIME COMMANDS
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh       # install wasm-pack
-cargo install cargo-generate                                                # install cargo-generate (this may take a while)
-cargo install wasm-bindgen-cli                                              # wasm-bindgen-cli
-rustup target add wasm32-unknown-unknown                                    # setup for compilation wasm32-unknown-unknown
+cargo install wasm-bindgen-cli                  # wasm-bindgen-cli
+rustup target add wasm32-unknown-unknown        # setup for compilation
 
 # COMPILE
-cargo build --target wasm32-unknown-unknown --release                           # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web # load to web directory
+cargo build --target wasm32-unknown-unknown --release && wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web
 
 # LOCAL HOST (OPTIONAL)
 cd web
@@ -53,8 +50,7 @@ sh <(curl -L https://nixos.org/nix/install) --daemon            # install nix
 nix develop -c $[SHELL]
 
 # COMPILE
-cargo build --target wasm32-unknown-unknown --release                           # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web # load to web directory
+cargo build --target wasm32-unknown-unknown --release && wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web
 
 # LOCAL HOST
 cd web
@@ -80,8 +76,7 @@ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 !!! MISSING STUFF !!! READ NOTE !!!
 
 # COMPILE
-cargo build --target wasm32-unknown-unknown --release                                       # compile
-wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir . && mv rust_* web/ # load to web directory
+cargo build --target wasm32-unknown-unknown --release && wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web --target web
 
 # LOCAL HOST
 cd web

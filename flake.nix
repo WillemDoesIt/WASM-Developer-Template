@@ -12,8 +12,6 @@
       devShell.x86_64-linux = pkgs.mkShell { 
         buildInputs = with pkgs; [ 
             git
-            #wasm-pack         # curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-            #cargo-generate    # cargo install cargo-generate
             cargo rustc rustup
             lld
 
