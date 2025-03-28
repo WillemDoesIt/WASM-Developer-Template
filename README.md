@@ -8,6 +8,8 @@ I specifically want this to be a project that can be easily developed on from an
 
 # Installation
 
+Bellow this will be instrucitons on installing dependencies and how to do the various things you may want to be able to do per operating system, but for ease, once you have installed all dependencies, you can command `./run.sh` to both compile and webhost (using python) automatically.
+
 ## Developer Install for Windows
 [Install Rust](https://www.rust-lang.org/tools/install) and [Git bash](https://git-scm.com/downloads/win) if you don't have them already. 
 You may also want to [install Python](https://www.python.org/downloads/) so you can localhost the `web/` directory, although many non-python solutions work here.

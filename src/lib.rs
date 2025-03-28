@@ -1,5 +1,5 @@
 use wasm_bindgen::prelude::*;
-use web_sys::{console, Document, Window};
+use web_sys::{console, Document};
 
 #[wasm_bindgen]
 pub fn greet() {
