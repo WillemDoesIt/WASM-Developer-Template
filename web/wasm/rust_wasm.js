@@ -167,8 +167,8 @@ function getDataViewMemory0() {
     return cachedDataViewMemory0;
 }
 
-export function greet() {
-    wasm.greet();
+export function main() {
+    wasm.main();
 }
 
 async function __wbg_load(module, imports) {

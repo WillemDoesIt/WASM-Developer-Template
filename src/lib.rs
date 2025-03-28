@@ -2,7 +2,7 @@ use wasm_bindgen::prelude::*;
 use web_sys::{console, Document, Window, HtmlElement};
 
 #[wasm_bindgen]
-pub fn greet() {
+pub fn main() {
     // console::log_1(&"Hello, WASM!".into()); // this is how you print to console
 
     let document = web_sys::window()

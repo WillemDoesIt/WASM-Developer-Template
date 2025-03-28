@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rust + WASM</title>
-    <link href="/format.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/format.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <h1>Hello, WASM!</h1>
     <div id="dynamic-content">Loading...</div> 
     <script type="module">
-        import init, { greet } from './wasm/rust_wasm.js';
-
-        async function runWasm() {
-            await init();  // Initialize WASM module
-            greet();       // Call the greet function
-        }
-
-        runWasm();
+        import init, { main } from './wasm/rust_wasm.js';
+        init().then(main);
     </script>
 </body>
 </html>
