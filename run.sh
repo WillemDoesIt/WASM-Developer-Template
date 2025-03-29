@@ -6,10 +6,12 @@ run_task() {
     echo -e "[       ] $msg"
 
     run_and_report() {
-        if "$@" > /dev/null 2>&1 && tput cuu1 && tput el; then
+        if "$@" > /dev/null 2>&1; then
+            tput cuu1 && tput el
             echo -e "[  \e[32mOK\e[0m   ] $msg"
             return 0
         else
+            cuu1 && tput el
             echo -e "[ \e[31mERROR\e[0m ] $msg"
             "$@"
             exit 1
@@ -19,12 +21,15 @@ run_task() {
     if [ "$bg" == "bg" ]; then
         "$@" > /dev/null 2>&1 &
         local pid=$!
+        sleep 0.1
 
-        if kill -0 $pid 2>/dev/null && tput cuu1 && tput el; then
+        if kill -0 $pid 2>/dev/null; then
+            tput cuu1 && tput el
             echo -e "[  \e[32mOK\e[0m   ] $msg"
             wait $pid
             return $?
         else
+            tput cuu1 && tput el
             run_and_report "$@"
         fi
     else
@@ -34,8 +39,8 @@ run_task() {
 
 
 
-run_task "clear previous wasm" fg cargo clean
-run_task "build wasm (this takes a while...)" fg cargo build --target wasm32-unknown-unknown --release -q
+# run_task "clear previous wasm" fg cargo clean
+run_task "build wasm" fg cargo build --target wasm32-unknown-unknown --release -q
 
 # Print build warnings/errors separately
 cargo build --target wasm32-unknown-unknown --release -q
