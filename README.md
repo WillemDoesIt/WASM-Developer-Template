@@ -1,8 +1,10 @@
 # Rust Wasm
 
-# Description
+<p align="center">
+  <img width="60%" src="header.png">
+</p>
 
-This is a basic project to familiarize myself with good pratices of rust, wasm, and general project development. When this is developed enough to have a demo webpage, I will link it here.
+This is a basic project to familiarize myself with good pratices of rust, wasm, and general project development. You can view the page working [here](https://willemdoesit.github.io/WASM-Developer-Template/web/index)
 
 I specifically want this to be a project that can be easily developed on from any OS. I'll be using (optional) nix flakes for reproducable developer environments.
 
