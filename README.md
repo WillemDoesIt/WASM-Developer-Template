@@ -23,7 +23,7 @@ Then execute the following in gitbash:
 
 ```bash
 # DOWNLOAD REPO
-https://github.com/WillemDoesIt/WASM-Developer-Template.git
+git clone https://github.com/WillemDoesIt/WASM-Developer-Template.git
 cd WASM-Developer-Template
 
 # IMPERATIVE ONE-TIME COMMANDS
@@ -43,7 +43,7 @@ Install nix with if you haven't already `sh <(curl -L https://nixos.org/nix/inst
 Then execute the following in the terminal:
 ```bash
 # DOWNLOAD REPO
-nix-shell -p git --run "https://github.com/WillemDoesIt/WASM-Developer-Template.git" 
+nix-shell -p git --run "git clone https://github.com/WillemDoesIt/WASM-Developer-Template.git" 
 cd WASM-Developer-Template
 
 # ENTER DEVELOPER ENVIRONMENT
@@ -63,7 +63,7 @@ If you don't want to use nix, run the following in the terminal:
 
 ```bash
 # DOWNLOAD REPO
-https://github.com/WillemDoesIt/WASM-Developer-Template.git
+git clone https://github.com/WillemDoesIt/WASM-Developer-Template.git
 cd WASM-Developer-Template
 
 # IMPERATIVE ONE-TIME COMMANDS
