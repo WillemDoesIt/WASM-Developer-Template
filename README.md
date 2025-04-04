@@ -47,7 +47,7 @@ nix-shell -p git --run "git clone https://github.com/WillemDoesIt/WASM-Developer
 cd WASM-Developer-Template
 
 # ENTER DEVELOPER ENVIRONMENT
-nix develope
+nix develop
 
 # COMPILE AND LOCALHOST
 ./deploy.sh
