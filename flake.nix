@@ -16,7 +16,7 @@
             lld
 
             wasm-bindgen-cli   # cargo install wasm-bindgen-cli
-            python313
+            miniserve
 
             sqlite
           ]; 

@@ -15,6 +15,13 @@ pub fn main() {
         .dyn_into::<HtmlElement>()
         .expect("Failed to cast to HtmlElement");
 
-    div.set_inner_html("WASM has dynamically updated this text!");
-    div.set_class_name("wasm");
+    let mut contents:String = "".to_string();
+
+    contents.push_str("
+        <div class=\"wasm\">
+            WASM has dynamically updated this text!
+        </div>
+        ");
+
+    div.set_inner_html(&contents);
 }

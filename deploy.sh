@@ -39,7 +39,7 @@ run_task() {
 
 
 
-# run_task "clear previous wasm" fg cargo clean
+run_task "clear previous wasm" fg cargo clean
 run_task "build wasm" fg cargo build --target wasm32-unknown-unknown --release -q
 
 # Print build warnings/errors separately
@@ -47,10 +47,10 @@ cargo build --target wasm32-unknown-unknown --release -q
 
 run_task "load wasm" fg wasm-bindgen target/wasm32-unknown-unknown/release/rust_wasm.wasm --out-dir web/wasm --target web
 
-cd web
 if [[ "$OSTYPE" == "cygwin" || "$OSTYPE" == "msys" || "$MSYSTEM" == "MINGW64" ]]; then
     export PATH=/c/Users/$(whoami)/AppData/Local/Programs/Python/Python313:$PATH
+    cd web
     run_task "On http://localhost:8000" bg python -m http.server
 else
-    run_task "On http://localhost:8000" bg python3 -m http.server
+    run_task "On http://localhost:8080/index.html" bg miniserve web/
 fi
